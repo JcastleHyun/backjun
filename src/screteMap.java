@@ -14,16 +14,21 @@ public class screteMap {
         ArrayList<String> result_arr = new ArrayList();
         for (int i = 0; i<arr1.length; i++){
             String binary = Integer.toBinaryString((arr1[i] | arr2[i]));
-            result_arr.add(transform(binary));
+            result_arr.add(transform(binary, n));
         }
         result = result_arr.toArray(new String[result_arr.size()]);
         return result;
 
     }
-    public static String transform(String binary){
+    public static String transform(String binary, int n){
         String result = binary;
         result = result.replace("1","#");
         result = result.replace("0", " ");
+        if(n>result.length()){
+            for(int i = result.length(); i<n;i++){
+                result = " " + result;
+            }
+        }
         return result;
     }
 
